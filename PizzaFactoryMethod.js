@@ -1,4 +1,9 @@
-class Pizza {
+const typeOfPizza = {
+  sarda: "Sarda",
+  romana: "Romana",
+};
+
+class PizzaBase {
   constructor(name) {
     this.name = name;
   }
@@ -8,9 +13,9 @@ class Pizza {
   }
 }
 
-class PizzaSarda extends Pizza {
+class PizzaSarda extends PizzaBase {
   constructor() {
-    super("Sarda");
+    super(typeOfPizza.sarda);
     this.taste = `MMmmmm! pizza ${this.name} so nice, it's so smoked!`;
   }
 
@@ -19,4 +24,22 @@ class PizzaSarda extends Pizza {
   }
 }
 
-export const pizzaSarda = new PizzaSarda();
+class PizzaRomana extends PizzaBase {
+  constructor() {
+    super(typeOfPizza.romana);
+    this.taste = `MMmmmm! pizza ${this.name} so nice, it's so tasty!`;
+  }
+
+  toTaste() {
+    console.log(this.taste);
+  }
+}
+
+class PizzaCooker {
+  static initialize(type) {
+    if (type === typeOfPizza.sarda) return new PizzaSarda();
+    if (type === typeOfPizza.romana) return new PizzaRomana();
+  }
+}
+
+export const pizzaCookerInit = PizzaCooker.initialize;
