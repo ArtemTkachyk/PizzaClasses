@@ -1,3 +1,4 @@
+import { LittleTailorShop } from "./LittleTailorShop.js";
 import { pizza4Cheese } from "./PizzaAbstractFactory.js";
 import { pizzaPepperoni } from "./PizzaBuilder.js";
 import { pizzaCookerInit } from "./PizzaFactoryMethod.js";
@@ -25,4 +26,6 @@ const UserRequest = [
 pizza4Cheese.toTaste();
 pizzaSarda.toTaste();
 pizzaPepperoni.toTaste();
+
 console.log(TailorShop.order(UserRequest));
+console.log(LittleTailorShop.order(UserRequest));
